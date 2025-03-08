@@ -12,8 +12,8 @@ if response_page.status_code == 200:
     print("Connected Successfully")
 else:
     print("Connection not successful!")
-
-# To parse the html page...
+    
+    # To parse the html page...
 parsed_page = BeautifulSoup(response_page.text, 'html.parser')
 # Extracting all hotel listing flex
 hotel_listing = parsed_page.find_all('div', class_="listing-hotels")
@@ -64,3 +64,5 @@ for listing in hotel_listing:
 
 df_hotel = pd.DataFrame(all_hotels_listing)  # Convert to dataframe
 df_hotel.to_csv("hotels.csv")  # save to csv
+
+
